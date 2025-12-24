@@ -11,7 +11,7 @@
   </script>
   
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
   <meta name="description" content="Extractingo: Professional Email Generator Tool with Auto-Personalization">
   <meta name="keywords" content="email generator, auto personalization, smart email, bulk email">
   <meta name="author" content="El Uthmaaniy">
@@ -65,6 +65,7 @@
     body {
       font-family: 'Google Sans', sans-serif;
       font-size: 14px;
+      -webkit-text-size-adjust: 100%;
     }
     
     * {
@@ -77,7 +78,7 @@
       background: #4285F4;
       color: white;
       border: none;
-      padding: 10px 20px;
+      padding: 10px 16px;
       border-radius: 6px;
       font-weight: 500;
       transition: all 0.3s ease;
@@ -86,6 +87,13 @@
       align-items: center;
       justify-content: center;
       font-size: 14px;
+    }
+    
+    @media (max-width: 640px) {
+      .btn-primary {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
     }
     
     .btn-primary:hover {
@@ -98,7 +106,7 @@
       background: transparent;
       color: #4285F4;
       border: 1px solid #4285F4;
-      padding: 10px 20px;
+      padding: 10px 16px;
       border-radius: 6px;
       font-weight: 500;
       transition: all 0.3s ease;
@@ -107,6 +115,13 @@
       align-items: center;
       justify-content: center;
       font-size: 14px;
+    }
+    
+    @media (max-width: 640px) {
+      .btn-secondary {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
     }
     
     .btn-secondary:hover {
@@ -141,6 +156,17 @@
       transform: translateX(120%);
       transition: transform 0.3s ease;
       box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+      max-width: 90vw;
+      word-break: break-word;
+    }
+    
+    @media (max-width: 640px) {
+      .notification {
+        top: 10px;
+        right: 10px;
+        left: 10px;
+        max-width: calc(100vw - 20px);
+      }
     }
     
     .notification.show {
@@ -162,12 +188,20 @@
     
     /* Email item styling */
     .email-item {
-      padding: 10px 15px;
+      padding: 10px 12px;
       border-bottom: 1px solid #E8EAED;
       cursor: pointer;
       display: flex;
       align-items: center;
-      gap: 10px;
+      gap: 8px;
+      flex-wrap: wrap;
+    }
+    
+    @media (max-width: 640px) {
+      .email-item {
+        padding: 8px 10px;
+        gap: 6px;
+      }
     }
     
     .email-item:hover {
@@ -203,16 +237,25 @@
     .personalization-badge {
       background: #34A853;
       color: white;
-      padding: 2px 8px;
+      padding: 2px 6px;
       border-radius: 12px;
       font-size: 11px;
       font-weight: 500;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 640px) {
+      .personalization-badge {
+        font-size: 10px;
+        padding: 1px 5px;
+      }
     }
     
     .email-status {
       width: 8px;
       height: 8px;
       border-radius: 50%;
+      flex-shrink: 0;
     }
     
     .status-sent {
@@ -225,28 +268,55 @@
     
     .email-number {
       color: #5F6368;
-      min-width: 25px;
+      min-width: 20px;
       font-size: 13px;
+      flex-shrink: 0;
+    }
+    
+    @media (max-width: 640px) {
+      .email-number {
+        min-width: 18px;
+        font-size: 12px;
+      }
     }
     
     .email-address {
       flex: 1;
       font-size: 14px;
+      word-break: break-all;
+      min-width: 120px;
+    }
+    
+    @media (max-width: 640px) {
+      .email-address {
+        font-size: 13px;
+        min-width: 100px;
+      }
     }
     
     .gmail-icon {
       color: #EA4335;
+      flex-shrink: 0;
     }
     
     /* Tab styling */
     .tab-button {
-      padding: 10px 20px;
+      padding: 10px 16px;
       border: none;
       background: none;
       color: #5F6368;
       font-weight: 500;
       cursor: pointer;
       border-bottom: 2px solid transparent;
+      font-size: 14px;
+      white-space: nowrap;
+    }
+    
+    @media (max-width: 640px) {
+      .tab-button {
+        padding: 8px 12px;
+        font-size: 13px;
+      }
     }
     
     .tab-button.active {
@@ -258,8 +328,14 @@
     .stats-card {
       background: #F8F9FA;
       border-radius: 8px;
-      padding: 15px;
+      padding: 12px;
       border: 1px solid #E8EAED;
+    }
+    
+    @media (max-width: 640px) {
+      .stats-card {
+        padding: 10px;
+      }
     }
     
     .dark .stats-card {
@@ -268,16 +344,28 @@
     }
     
     .stats-value {
-      font-size: 24px;
+      font-size: 20px;
       font-weight: 600;
       line-height: 1.2;
     }
     
+    @media (max-width: 640px) {
+      .stats-value {
+        font-size: 18px;
+      }
+    }
+    
     .stats-label {
-      font-size: 12px;
+      font-size: 11px;
       color: #5F6368;
       text-transform: uppercase;
       letter-spacing: 0.5px;
+    }
+    
+    @media (max-width: 640px) {
+      .stats-label {
+        font-size: 10px;
+      }
     }
     
     /* Anti-spam tips */
@@ -287,6 +375,14 @@
       border-radius: 6px;
       padding: 12px;
       margin-top: 10px;
+      font-size: 13px;
+    }
+    
+    @media (max-width: 640px) {
+      .anti-spam-tip {
+        padding: 10px;
+        font-size: 12px;
+      }
     }
     
     .dark .anti-spam-tip {
@@ -307,6 +403,15 @@
       font-family: 'Google Sans', sans-serif;
       font-size: 14px;
       resize: vertical;
+      -webkit-appearance: none;
+      box-sizing: border-box;
+    }
+    
+    @media (max-width: 640px) {
+      textarea {
+        padding: 10px;
+        font-size: 13px;
+      }
     }
     
     .dark textarea {
@@ -328,6 +433,16 @@
       border: 1px solid #DADCE0;
       border-radius: 6px;
       font-size: 14px;
+      box-sizing: border-box;
+      -webkit-appearance: none;
+    }
+    
+    @media (max-width: 640px) {
+      input[type="text"],
+      input[type="email"] {
+        padding: 8px 10px;
+        font-size: 13px;
+      }
     }
     
     .dark input[type="text"],
@@ -363,6 +478,7 @@
       border-radius: 12px;
       font-size: 12px;
       font-weight: 500;
+      white-space: nowrap;
     }
     
     .spam-score-low {
@@ -442,8 +558,15 @@
     
     /* Scrollbar styling */
     ::-webkit-scrollbar {
-      width: 8px;
-      height: 8px;
+      width: 6px;
+      height: 6px;
+    }
+    
+    @media (max-width: 640px) {
+      ::-webkit-scrollbar {
+        width: 4px;
+        height: 4px;
+      }
     }
     
     ::-webkit-scrollbar-track {
@@ -477,7 +600,7 @@
       background: #F8F9FA;
       border: 1px solid #E8EAED;
       border-radius: 8px;
-      padding: 15px;
+      padding: 12px;
       margin-top: 10px;
     }
     
@@ -488,23 +611,29 @@
     
     .spam-issue {
       color: #EA4335;
-      font-size: 13px;
-      margin-top: 5px;
+      font-size: 12px;
+      margin-top: 4px;
     }
     
     .spam-fixed {
       color: #34A853;
-      font-size: 13px;
-      margin-top: 5px;
+      font-size: 12px;
+      margin-top: 4px;
     }
     
     /* Auto-personalization indicator */
     .auto-personalization {
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
-      padding: 10px 15px;
+      padding: 12px 15px;
       border-radius: 8px;
       margin: 10px 0;
+    }
+    
+    @media (max-width: 640px) {
+      .auto-personalization {
+        padding: 10px 12px;
+      }
     }
     
     .personalization-status {
@@ -515,8 +644,15 @@
       font-size: 13px;
     }
     
+    @media (max-width: 640px) {
+      .personalization-status {
+        font-size: 12px;
+      }
+    }
+    
     .personalization-icon {
       color: #34A853;
+      flex-shrink: 0;
     }
     
     /* Variable detection */
@@ -524,7 +660,7 @@
       background: #E8F0FE;
       border: 1px solid #DADCE0;
       border-radius: 6px;
-      padding: 12px;
+      padding: 10px;
       margin-top: 10px;
     }
     
@@ -552,7 +688,7 @@
       background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
       color: white;
       border: none;
-      padding: 10px 15px;
+      padding: 8px 12px;
       border-radius: 6px;
       font-weight: 500;
       transition: all 0.3s ease;
@@ -560,12 +696,114 @@
       display: inline-flex;
       align-items: center;
       justify-content: center;
-      font-size: 14px;
+      font-size: 13px;
+    }
+    
+    @media (max-width: 640px) {
+      .btn-sample {
+        padding: 6px 10px;
+        font-size: 12px;
+      }
     }
     
     .btn-sample:hover {
       transform: translateY(-2px);
       box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+    }
+    
+    /* Mobile-specific adjustments */
+    @media (max-width: 768px) {
+      .mobile-stack {
+        flex-direction: column !important;
+      }
+      
+      .mobile-full-width {
+        width: 100% !important;
+      }
+      
+      .mobile-text-center {
+        text-align: center;
+      }
+      
+      .mobile-p-4 {
+        padding: 16px !important;
+      }
+      
+      .mobile-space-y-4 > * + * {
+        margin-top: 16px !important;
+      }
+    }
+    
+    /* Tool header mobile fix */
+    @media (max-width: 1024px) {
+      .tool-header-buttons {
+        flex-wrap: wrap;
+        gap: 8px;
+      }
+    }
+    
+    /* Email actions mobile fix */
+    @media (max-width: 640px) {
+      .email-actions {
+        flex-direction: column;
+        gap: 12px;
+      }
+      
+      .email-actions > div {
+        width: 100%;
+        text-align: center;
+      }
+      
+      .email-actions-buttons {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 8px;
+        justify-content: center;
+      }
+    }
+    
+    /* Fix for very small screens */
+    @media (max-width: 360px) {
+      .tab-button {
+        padding: 6px 8px;
+        font-size: 12px;
+      }
+      
+      .email-item {
+        padding: 6px 8px;
+      }
+      
+      .email-address {
+        font-size: 12px;
+      }
+    }
+    
+    /* Contenteditable editor styling */
+    .contenteditable-editor {
+      min-height: 200px;
+      max-height: 400px;
+      overflow-y: auto;
+      white-space: pre-wrap;
+      word-wrap: break-word;
+      outline: none;
+    }
+    
+    .contenteditable-editor:empty:before {
+      content: attr(placeholder);
+      color: #9CA3AF;
+      pointer-events: none;
+    }
+    
+    .dark .contenteditable-editor:empty:before {
+      color: #6B7280;
+    }
+    
+    /* Underlined text detection styling */
+    .underlined-selected {
+      background-color: #fff9c4 !important;
+      padding: 2px 4px;
+      border-radius: 3px;
+      box-shadow: 0 0 0 2px #ffb300;
     }
   </style>
 </head>
@@ -578,10 +816,10 @@
 </div>
 
 <!-- Header -->
-<header class="bg-white dark:bg-gray-800 py-4 shadow-sm border-b border-gray-200 dark:border-gray-700">
-  <div class="container mx-auto px-4 md:px-6">
+<header class="bg-white dark:bg-gray-800 py-3 shadow-sm border-b border-gray-200 dark:border-gray-700">
+  <div class="container mx-auto px-3 md:px-6">
     <div class="flex justify-between items-center">
-      <div class="text-2xl font-bold">
+      <div class="text-xl font-bold">
         <a href="https://emailtools.blogspot.com/" target="_blank" class="flex items-center">
           <span class="text-google-blue">Extrac</span><span class="text-google-green">tingo</span>
         </a>
@@ -600,55 +838,55 @@
 </header>
 
 <!-- Main Content -->
-<main class="min-h-screen py-8">
-  <div class="container mx-auto px-4 md:px-6">
+<main class="min-h-screen py-6">
+  <div class="container mx-auto px-3 md:px-6">
     <!-- Title -->
-    <div class="text-center mb-8">
-      <h1 class="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white mb-2">
+    <div class="text-center mb-6">
+      <h1 class="text-2xl md:text-3xl font-bold text-gray-900 dark:text-white mb-2">
         <i class="ri-mail-send-line text-google-blue"></i> Smart Email Generator
       </h1>
-      <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto">
+      <p class="text-gray-600 dark:text-gray-300 max-w-2xl mx-auto text-sm md:text-base">
         Generate emails with auto-personalization. Opens directly in email app with auto-filled content.
       </p>
     </div>
 
     <!-- Auto-Personalization Banner -->
-    <div class="mb-8 max-w-6xl mx-auto">
+    <div class="mb-6 max-w-6xl mx-auto">
       <div class="auto-personalization">
         <div class="flex items-center justify-between">
           <div>
-            <h3 class="font-semibold flex items-center">
+            <h3 class="font-semibold flex items-center text-sm md:text-base">
               <i class="ri-ai-generate mr-2"></i> Auto-Personalization Active
             </h3>
-            <p class="text-sm opacity-90">Variables like {name} will be auto-filled when emails are generated</p>
+            <p class="text-xs md:text-sm opacity-90">Variables like {name} will be auto-filled when emails are generated</p>
           </div>
-          <span class="bg-white bg-opacity-20 px-3 py-1 rounded-full text-xs font-medium">
-            Uses mailto:
+          <span class="bg-white bg-opacity-20 px-2 py-1 rounded-full text-xs font-medium">
+            mailto:
           </span>
         </div>
         
-        <div class="mt-3 grid grid-cols-1 md:grid-cols-3 gap-4">
+        <div class="mt-3 grid grid-cols-1 md:grid-cols-3 gap-3">
           <div class="personalization-status">
             <i class="ri-checkbox-circle-fill personalization-icon"></i>
-            <span>Auto-detects {name} in subject/body</span>
+            <span class="text-xs md:text-sm">Auto-detects {name} in subject/body</span>
           </div>
           <div class="personalization-status">
             <i class="ri-checkbox-circle-fill personalization-icon"></i>
-            <span>Extracts names from email addresses</span>
+            <span class="text-xs md:text-sm">Extracts names from email addresses</span>
           </div>
           <div class="personalization-status">
             <i class="ri-checkbox-circle-fill personalization-icon"></i>
-            <span>Opens email app with mailto:</span>
+            <span class="text-xs md:text-sm">Opens email app with mailto:</span>
           </div>
         </div>
       </div>
     </div>
 
     <!-- Anti-Spam Banner -->
-    <div class="mb-8 max-w-6xl mx-auto">
+    <div class="mb-6 max-w-6xl mx-auto">
       <div class="anti-spam-tip flex items-start">
         <i class="ri-shield-check-line ri-lg mr-3 mt-1"></i>
-        <div>
+        <div class="text-xs md:text-sm">
           <strong>Spam-Free Guarantee:</strong> This tool NEVER sends emails from our servers. 
           Emails open directly in your email app - you control the sending. 
           We provide spam-check tools to ensure your emails don't get flagged.
@@ -660,69 +898,69 @@
     <div class="max-w-6xl mx-auto bg-white dark:bg-gray-800 rounded-xl shadow-lg border border-gray-200 dark:border-gray-700 overflow-hidden">
       
       <!-- Tool Header -->
-      <div class="border-b border-gray-200 dark:border-gray-700 px-6 py-4">
-        <div class="flex flex-wrap justify-between items-center gap-4">
-          <div class="flex items-center space-x-4">
-            <h2 class="text-xl font-semibold text-gray-900 dark:text-white">
+      <div class="border-b border-gray-200 dark:border-gray-700 px-4 py-3 md:px-6 md:py-4">
+        <div class="flex flex-col md:flex-row md:flex-wrap justify-between items-start md:items-center gap-3">
+          <div class="flex items-center space-x-3">
+            <h2 class="text-lg md:text-xl font-semibold text-gray-900 dark:text-white">
               Email Campaign Generator
             </h2>
-            <span class="px-3 py-1 bg-google-green text-white text-xs font-medium rounded-full">
-              mailto: Protocol
+            <span class="px-2 py-1 bg-google-green text-white text-xs font-medium rounded-full">
+              mailto:
             </span>
           </div>
-          <div class="flex items-center space-x-3">
-            <button onclick="toggleAdvancedOptions()" class="btn-secondary text-sm">
-              <i class="ri-settings-3-line mr-2"></i>Advanced Options
+          <div class="tool-header-buttons flex flex-wrap gap-2 w-full md:w-auto">
+            <button onclick="toggleAdvancedOptions()" class="btn-secondary text-xs md:text-sm">
+              <i class="ri-settings-3-line mr-1 md:mr-2"></i>Advanced
             </button>
-            <button onclick="previewEmail()" class="btn-secondary text-sm">
-              <i class="ri-eye-line mr-2"></i>Preview
+            <button onclick="previewEmail()" class="btn-secondary text-xs md:text-sm">
+              <i class="ri-eye-line mr-1 md:mr-2"></i>Preview
             </button>
-            <button onclick="testInGmail()" class="btn-secondary text-sm">
-              <i class="ri-mail-line mr-2"></i>Test Email
+            <button onclick="testInGmail()" class="btn-secondary text-xs md:text-sm">
+              <i class="ri-mail-line mr-1 md:mr-2"></i>Test
             </button>
-            <button onclick="generateEmails()" class="btn-primary bg-google-green hover:bg-green-600">
-              <i class="ri-mail-send-line mr-2"></i>Generate Emails
+            <button onclick="generateEmails()" class="btn-primary bg-google-green hover:bg-green-600 text-xs md:text-sm">
+              <i class="ri-mail-send-line mr-1 md:mr-2"></i>Generate
             </button>
           </div>
         </div>
       </div>
 
       <!-- Tool Body -->
-      <div class="p-6">
-        <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+      <div class="p-4 md:p-6">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 md:gap-8">
           
           <!-- Left Column: Email Configuration -->
-          <div class="space-y-6">
+          <div class="space-y-4 md:space-y-6">
             
             <!-- Recipients Section -->
             <div>
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+              <div class="flex items-center justify-between mb-2 md:mb-3">
+                <h3 class="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
                   # Recipients Email
                 </h3>
                 <div class="flex items-center space-x-2">
-                  <button onclick="loadSampleEmails()" class="btn-sample text-sm">
-                    <i class="ri-download-line mr-1"></i>Load Sample
+                  <button onclick="loadSampleEmails()" class="btn-sample text-xs md:text-sm">
+                    <i class="ri-download-line mr-1"></i>Sample
                   </button>
-                  <button onclick="clearRecipients()" class="text-sm text-google-red hover:text-red-700">
+                  <button onclick="clearRecipients()" class="text-xs md:text-sm text-google-red hover:text-red-700">
                     <i class="ri-eraser-line mr-1"></i>Clear
                   </button>
-                  <button onclick="validateEmails()" class="text-sm text-google-green hover:text-green-700">
+                  <button onclick="validateEmails()" class="text-xs md:text-sm text-google-green hover:text-green-700">
                     <i class="ri-shield-check-line mr-1"></i>Validate
                   </button>
                 </div>
               </div>
               
-              <textarea id="recipient-emails" rows="10"
-                class="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg font-mono text-sm"
+              <textarea id="recipient-emails" rows="8"
+                class="w-full p-3 md:p-4 border border-gray-300 dark:border-gray-600 rounded-lg font-mono text-xs md:text-sm"
                 placeholder="Enter each email on a new line (one per line):
 
 You can add your own emails here...
 
-Or click 'Load Sample' to load sample emails."></textarea>
+Or click 'Sample' to load sample emails."></textarea>
               
               <!-- Stats Cards -->
-              <div id="email-stats" class="mt-4 grid grid-cols-2 md:grid-cols-4 gap-3">
+              <div id="email-stats" class="mt-3 grid grid-cols-2 md:grid-cols-4 gap-2 md:gap-3">
                 <div class="stats-card">
                   <div class="stats-value text-google-green" id="valid-count">0</div>
                   <div class="stats-label">Valid</div>
@@ -744,12 +982,12 @@ Or click 'Load Sample' to load sample emails."></textarea>
               <!-- Variable Detection -->
               <div id="variable-detection" class="variable-detection hidden">
                 <div class="flex items-center justify-between mb-2">
-                  <h4 class="text-sm font-medium text-gray-900 dark:text-white">
+                  <h4 class="text-xs md:text-sm font-medium text-gray-900 dark:text-white">
                     <i class="ri-ai-generate mr-2"></i> Variables Detected
                   </h4>
                   <span id="variable-count" class="text-xs px-2 py-1 bg-google-blue text-white rounded-full">0</span>
                 </div>
-                <div id="detected-variables" class="text-sm text-gray-600 dark:text-gray-400">
+                <div id="detected-variables" class="text-xs md:text-sm text-gray-600 dark:text-gray-400">
                   <!-- Variables will appear here -->
                 </div>
               </div>
@@ -757,20 +995,20 @@ Or click 'Load Sample' to load sample emails."></textarea>
 
             <!-- Subject Line -->
             <div>
-              <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-3">
-                Subject Line <span class="text-gray-500 text-sm font-normal">(Max 200 characters)</span>
+              <h3 class="text-base md:text-lg font-semibold text-gray-900 dark:text-white mb-2 md:mb-3">
+                Subject Line <span class="text-gray-500 text-xs md:text-sm font-normal">(Max 200 chars)</span>
               </h3>
               <div class="relative">
                 <input type="text" id="email-subject" maxlength="200"
-                  class="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg pr-20"
+                  class="w-full p-3 md:p-4 border border-gray-300 dark:border-gray-600 rounded-lg pr-16"
                   placeholder="Hello {name}, updates from our team">
-                <div class="absolute right-3 top-3 text-sm text-gray-500">
+                <div class="absolute right-3 top-3 text-xs md:text-sm text-gray-500">
                   <span id="subject-length">0</span>/200
                 </div>
               </div>
               
               <!-- Variable Suggestions -->
-              <div class="mt-2 text-sm text-gray-600 dark:text-gray-400">
+              <div class="mt-2 text-xs md:text-sm text-gray-600 dark:text-gray-400">
                 Use variables: 
                 <button onclick="insertVariable('name')" class="variable-highlight mx-1 hover:bg-yellow-100 dark:hover:bg-yellow-900 cursor-pointer">{name}</button>
                 <button onclick="insertVariable('company')" class="variable-highlight mx-1 hover:bg-yellow-100 dark:hover:bg-yellow-900 cursor-pointer">{company}</button>
@@ -778,9 +1016,9 @@ Or click 'Load Sample' to load sample emails."></textarea>
               </div>
               
               <!-- Spam Check for Subject -->
-              <div id="subject-spam-check" class="spam-check hidden mt-3">
+              <div id="subject-spam-check" class="spam-check hidden mt-2 md:mt-3">
                 <div class="flex items-center justify-between mb-2">
-                  <h4 class="text-sm font-medium text-gray-900 dark:text-white">Subject Spam Analysis</h4>
+                  <h4 class="text-xs md:text-sm font-medium text-gray-900 dark:text-white">Subject Spam Analysis</h4>
                   <span class="spam-score spam-score-low" id="subject-spam-score">Low Risk</span>
                 </div>
                 <div id="subject-spam-issues"></div>
@@ -788,41 +1026,41 @@ Or click 'Load Sample' to load sample emails."></textarea>
             </div>
 
             <!-- Advanced Options (Collapsible) -->
-            <div id="advanced-options" class="hidden space-y-4 pt-4 border-t border-gray-200 dark:border-gray-700">
-              <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+            <div id="advanced-options" class="hidden space-y-3 md:space-y-4 pt-3 md:pt-4 border-t border-gray-200 dark:border-gray-700">
+              <div class="grid grid-cols-1 md:grid-cols-2 gap-3 md:gap-4">
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label class="block text-xs md:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Your Name (Sender)
                   </label>
                   <input type="text" id="from-name"
-                    class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg"
+                    class="w-full p-2 md:p-3 border border-gray-300 dark:border-gray-600 rounded-lg"
                     placeholder="Your Name">
                 </div>
                 <div>
-                  <label class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
+                  <label class="block text-xs md:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1">
                     Your Email (Reply-to)
                   </label>
                   <input type="email" id="from-email"
-                    class="w-full p-3 border border-gray-300 dark:border-gray-600 rounded-lg"
+                    class="w-full p-2 md:p-3 border border-gray-300 dark:border-gray-600 rounded-lg"
                     placeholder="your-email@gmail.com">
                 </div>
               </div>
               
               <!-- Personalization Settings -->
               <div>
-                <h4 class="text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Personalization Settings</h4>
-                <div class="space-y-2">
+                <h4 class="text-xs md:text-sm font-medium text-gray-700 dark:text-gray-300 mb-1 md:mb-2">Personalization Settings</h4>
+                <div class="space-y-1 md:space-y-2">
                   <label class="flex items-center space-x-2">
                     <input type="checkbox" id="auto-detect-names" checked class="rounded text-google-blue">
-                    <span class="text-sm">Auto-detect names from emails</span>
+                    <span class="text-xs md:text-sm">Auto-detect names from emails</span>
                   </label>
                   <label class="flex items-center space-x-2">
                     <input type="checkbox" id="auto-capitalize" checked class="rounded text-google-blue">
-                    <span class="text-sm">Auto-capitalize extracted names</span>
+                    <span class="text-xs md:text-sm">Auto-capitalize extracted names</span>
                   </label>
                   <label class="flex items-center space-x-2">
                     <input type="checkbox" id="include-date" checked class="rounded text-google-blue">
-                    <span class="text-sm">Include {date} automatically</span>
+                    <span class="text-xs md:text-sm">Include {date} automatically</span>
                   </label>
                 </div>
               </div>
@@ -830,26 +1068,28 @@ Or click 'Load Sample' to load sample emails."></textarea>
           </div>
 
           <!-- Right Column: Email Content & Results -->
-          <div class="space-y-6">
+          <div class="space-y-4 md:space-y-6">
             
             <!-- Message Body -->
             <div>
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
-                  Message Body <span class="text-gray-500 text-sm font-normal">(Max 2000 characters)</span>
+              <div class="flex items-center justify-between mb-2 md:mb-3">
+                <h3 class="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
+                  Message Body <span class="text-gray-500 text-xs md:text-sm font-normal">(Max 2000 chars)</span>
                 </h3>
                 <div class="flex items-center space-x-2">
-                  <button onclick="checkSpam()" class="btn-secondary text-sm">
-                    <i class="ri-shield-star-line mr-1"></i>Check Spam Score
+                  <button onclick="checkSpam()" class="btn-secondary text-xs md:text-sm">
+                    <i class="ri-shield-star-line mr-1"></i>Spam Check
                   </button>
-                  <div class="text-sm text-gray-500">
+                  <div class="text-xs md:text-sm text-gray-500">
                     <span id="body-length">0</span>/2000
                   </div>
                 </div>
               </div>
               
-              <textarea id="email-body" rows="12" maxlength="2000"
-                class="w-full p-4 border border-gray-300 dark:border-gray-600 rounded-lg"
+              <!-- Contenteditable Editor -->
+              <div id="email-body-editor" 
+                class="w-full p-3 md:p-4 border border-gray-300 dark:border-gray-600 rounded-lg contenteditable-editor"
+                contenteditable="true"
                 placeholder="Write your email message here...
 
 Example template:
@@ -858,65 +1098,76 @@ Dear {name},
 We hope this email finds you well. We wanted to share some exciting updates...
 
 Best regards,
-{your_name}"></textarea>
+{your_name}"></div>
+              
+              <!-- Hidden textarea for form submission -->
+              <textarea id="email-body" style="display: none;" maxlength="2000"></textarea>
               
               <!-- Spam Check Results -->
-              <div id="spam-results" class="spam-check hidden mt-3">
+              <div id="spam-results" class="spam-check hidden mt-2 md:mt-3">
                 <div class="flex items-center justify-between mb-2">
-                  <h4 class="text-sm font-medium text-gray-900 dark:text-white">
+                  <h4 class="text-xs md:text-sm font-medium text-gray-900 dark:text-white">
                     <i class="ri-shield-star-line mr-2 text-google-blue"></i>
                     Spam Analysis Results
                   </h4>
-                  <span class="spam-score" id="overall-spam-score">Checking...</span>
+                  <span class="spam-score spam-score-low" id="overall-spam-score">Checking...</span>
                 </div>
-                <div id="spam-issues" class="space-y-2">
+                <div id="spam-issues" class="space-y-1 md:space-y-2">
                   <!-- Issues will appear here -->
                 </div>
-                <div id="spam-suggestions" class="mt-3 text-sm text-gray-600 dark:text-gray-400">
+                <div id="spam-suggestions" class="mt-2 md:mt-3 text-xs md:text-sm text-gray-600 dark:text-gray-400">
                   <!-- Suggestions will appear here -->
                 </div>
               </div>
               
               <!-- Formatting Tools -->
-              <div class="mt-3 flex flex-wrap gap-2">
-                <button onclick="formatText('bold')" class="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+              <div class="mt-2 md:mt-3 flex flex-wrap gap-1 md:gap-2">
+                <button onclick="formatText('bold')" class="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
                   <i class="ri-bold mr-1"></i>Bold
                 </button>
-                <button onclick="formatText('italic')" class="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                <button onclick="formatText('italic')" class="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
                   <i class="ri-italic mr-1"></i>Italic
                 </button>
-                <button onclick="insertVariable('name')" class="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                <button onclick="formatText('underline')" class="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                  <i class="ri-underline mr-1"></i>Underline
+                </button>
+                <button onclick="insertVariable('name')" class="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
                   {name}
                 </button>
-                <button onclick="insertVariable('company')" class="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                <button onclick="insertVariable('company')" class="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
                   {company}
                 </button>
-                <button onclick="insertVariable('date')" class="px-3 py-1 text-sm border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
+                <button onclick="insertVariable('date')" class="px-2 py-1 text-xs border border-gray-300 dark:border-gray-600 rounded hover:bg-gray-100 dark:hover:bg-gray-700">
                   {date}
                 </button>
+              </div>
+              
+              <!-- Instructions for underlined text -->
+              <div class="mt-2 text-xs text-gray-500 dark:text-gray-400">
+                <i class="ri-information-line mr-1"></i> Underlined text will <strong>automatically convert to bold</strong> when sending emails.
               </div>
             </div>
 
             <!-- Generated Emails Section (Initially hidden) -->
             <div id="generated-emails-section" class="hidden">
-              <div class="flex items-center justify-between mb-3">
-                <h3 class="text-lg font-semibold text-gray-900 dark:text-white">
+              <div class="flex items-center justify-between mb-2 md:mb-3">
+                <h3 class="text-base md:text-lg font-semibold text-gray-900 dark:text-white">
                   <i class="ri-gmail-line gmail-icon mr-2"></i># Generated Emails
                 </h3>
-                <div class="flex items-center space-x-4">
-                  <div class="text-sm text-gray-500">
+                <div class="flex items-center space-x-2 md:space-x-4">
+                  <div class="text-xs md:text-sm text-gray-500">
                     <span class="text-google-blue">Ctrl+Click</span> = multi-select
                   </div>
                 </div>
               </div>
               
-              <div class="text-sm text-gray-600 dark:text-gray-400 mb-3">
+              <div class="text-xs md:text-sm text-gray-600 dark:text-gray-400 mb-2 md:mb-3">
                 Click any email to open your email app with auto-filled content. 
                 <span class="text-google-green">Personalized emails have badge</span>. 
               </div>
               
               <!-- Tabs -->
-              <div class="flex border-b border-gray-200 dark:border-gray-700 mb-4">
+              <div class="flex border-b border-gray-200 dark:border-gray-700 mb-3 md:mb-4">
                 <button onclick="showEmailTab('all')" class="tab-button active" data-tab="all">
                   All
                 </button>
@@ -934,17 +1185,17 @@ Best regards,
               </div>
               
               <!-- Email Actions -->
-              <div class="mt-4 flex justify-between items-center">
-                <div class="text-sm text-gray-600 dark:text-gray-400">
+              <div class="mt-3 md:mt-4 email-actions flex flex-col md:flex-row justify-between items-center gap-2 md:gap-0">
+                <div class="text-xs md:text-sm text-gray-600 dark:text-gray-400 text-center md:text-left">
                   <span id="selected-count">0</span> selected | 
                   <span id="opened-count">0</span> opened in Email App
                 </div>
-                <div class="flex space-x-2">
-                  <button onclick="openSelectedInGmail()" class="btn-secondary">
-                    <i class="ri-mail-line mr-2"></i>Open Selected in Email App
+                <div class="email-actions-buttons flex space-x-1 md:space-x-2">
+                  <button onclick="openSelectedInGmail()" class="btn-secondary text-xs md:text-sm">
+                    <i class="ri-mail-line mr-1 md:mr-2"></i>Open Selected
                   </button>
-                  <button onclick="exportEmails()" class="btn-primary">
-                    <i class="ri-download-line mr-2"></i>Export List
+                  <button onclick="exportEmails()" class="btn-primary text-xs md:text-sm">
+                    <i class="ri-download-line mr-1 md:mr-2"></i>Export
                   </button>
                 </div>
               </div>
@@ -955,51 +1206,51 @@ Best regards,
     </div>
     
     <!-- How It Works -->
-    <div class="mt-8 max-w-6xl mx-auto bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-lg p-6">
-      <h3 class="text-lg font-semibold text-gray-900 dark:text-white mb-4 flex items-center">
+    <div class="mt-6 md:mt-8 max-w-6xl mx-auto bg-gradient-to-r from-blue-50 to-purple-50 dark:from-gray-800 dark:to-gray-900 rounded-lg p-4 md:p-6">
+      <h3 class="text-base md:text-lg font-semibold text-gray-900 dark:text-white mb-3 md:mb-4 flex items-center">
         <i class="ri-question-line mr-2 text-google-blue"></i> How mailto: Protocol Works
       </h3>
-      <div class="grid grid-cols-1 md:grid-cols-3 gap-4">
-        <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
-          <div class="text-2xl text-google-blue mb-2">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-3 md:gap-4">
+        <div class="bg-white dark:bg-gray-700 p-3 md:p-4 rounded-lg">
+          <div class="text-xl md:text-2xl text-google-blue mb-2">
             <i class="ri-mail-add-line"></i>
           </div>
-          <h4 class="font-medium mb-1">1. Generate Emails</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Add recipients, subject, and body then click Generate</p>
+          <h4 class="font-medium mb-1 text-sm md:text-base">1. Generate Emails</h4>
+          <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400">Add recipients, subject, and body then click Generate</p>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
-          <div class="text-2xl text-google-green mb-2">
+        <div class="bg-white dark:bg-gray-700 p-3 md:p-4 rounded-lg">
+          <div class="text-xl md:text-2xl text-google-green mb-2">
             <i class="ri-cursor-click-line"></i>
           </div>
-          <h4 class="font-medium mb-1">2. Click Email</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Click any email - uses mailto: to open your email app</p>
+          <h4 class="font-medium mb-1 text-sm md:text-base">2. Click Email</h4>
+          <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400">Click any email - uses mailto: to open your email app</p>
         </div>
-        <div class="bg-white dark:bg-gray-700 p-4 rounded-lg">
-          <div class="text-2xl text-google-red mb-2">
+        <div class="bg-white dark:bg-gray-700 p-3 md:p-4 rounded-lg">
+          <div class="text-xl md:text-2xl text-google-red mb-2">
             <i class="ri-send-plane-line"></i>
           </div>
-          <h4 class="font-medium mb-1">3. Send & Return</h4>
-          <p class="text-sm text-gray-600 dark:text-gray-400">Send in your email app, return to browser, click next email</p>
+          <h4 class="font-medium mb-1 text-sm md:text-base">3. Send & Return</h4>
+          <p class="text-xs md:text-sm text-gray-600 dark:text-gray-400">Send in your email app, return to browser, click next email</p>
         </div>
       </div>
     </div>
     
     <!-- Mobile Instructions -->
-    <div class="mt-8 max-w-6xl mx-auto bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded-lg p-4">
+    <div class="mt-6 md:mt-8 max-w-6xl mx-auto bg-yellow-50 dark:bg-yellow-900 border border-yellow-200 dark:border-yellow-700 rounded-lg p-3 md:p-4">
       <div class="flex items-start">
-        <div class="text-yellow-600 dark:text-yellow-300 mr-3 mt-1">
-          <i class="ri-information-line text-xl"></i>
+        <div class="text-yellow-600 dark:text-yellow-300 mr-2 md:mr-3 mt-1">
+          <i class="ri-information-line text-lg md:text-xl"></i>
         </div>
         <div>
-          <h4 class="font-semibold text-gray-900 dark:text-white mb-2">Using mailto: Protocol:</h4>
-          <ol class="list-decimal pl-5 space-y-1 text-sm text-gray-700 dark:text-gray-300">
+          <h4 class="font-semibold text-gray-900 dark:text-white mb-1 md:mb-2 text-sm md:text-base">Using mailto: Protocol:</h4>
+          <ol class="list-decimal pl-4 md:pl-5 space-y-1 text-xs md:text-sm text-gray-700 dark:text-gray-300">
             <li><strong>Click any email</strong> - Opens your default email app (Gmail if set as default)</li>
             <li><strong>Subject & body are pre-filled</strong> in your email app</li>
             <li><strong>Send the email</strong> manually in your email app</li>
             <li><strong>Return to this tab</strong> manually (back button or browser tabs)</li>
             <li><strong>Click next email</strong> to continue the process</li>
           </ol>
-          <p class="text-xs text-gray-500 dark:text-gray-400 mt-2">
+          <p class="text-xs text-gray-500 dark:text-gray-400 mt-1 md:mt-2">
             Note: Works with any email app (Gmail, Outlook, Apple Mail, etc.) set as default on your device
           </p>
         </div>
@@ -1009,16 +1260,16 @@ Best regards,
 </main>
 
 <!-- Footer -->
-<footer class="bg-gray-50 dark:bg-gray-800 py-8 border-t border-gray-200 dark:border-gray-700 mt-8">
-  <div class="container mx-auto px-4 md:px-6">
+<footer class="bg-gray-50 dark:bg-gray-800 py-6 border-t border-gray-200 dark:border-gray-700 mt-6">
+  <div class="container mx-auto px-3 md:px-6">
     <div class="text-center">
-      <div class="text-2xl font-bold mb-4">
+      <div class="text-xl md:text-2xl font-bold mb-3 md:mb-4">
         <span class="text-google-blue">Extrac</span><span class="text-google-green">tingo</span>
       </div>
-      <p class="text-gray-600 dark:text-gray-400 mb-4">
+      <p class="text-gray-600 dark:text-gray-400 mb-3 md:mb-4 text-sm md:text-base">
         Smart email tools with auto-personalization
       </p>
-      <div class="flex justify-center space-x-6 mb-6">
+      <div class="flex justify-center space-x-4 md:space-x-6 mb-4 md:mb-6">
         <a href="https://emailtools.blogspot.com/" class="text-gray-600 dark:text-gray-400 hover:text-google-blue" target="_blank">
           <i class="ri-global-line ri-lg"></i>
         </a>
@@ -1029,7 +1280,7 @@ Best regards,
           <i class="ri-mail-line ri-lg"></i>
         </a>
       </div>
-      <div class="text-sm text-gray-500 dark:text-gray-400">
+      <div class="text-xs md:text-sm text-gray-500 dark:text-gray-400">
         &copy; <span id="currentYear"></span> Extractingo. 
         <span class="block mt-1">
           Visit our blog: 
@@ -1051,6 +1302,7 @@ class EmailGeneratorApp {
     this.generatedEmails = [];
     this.selectedEmails = new Set();
     this.currentTab = 'all';
+    this.lastUnderlinedElement = null;
     this.initialize();
   }
 
@@ -1059,35 +1311,35 @@ class EmailGeneratorApp {
     this.updateYear();
     this.setupTheme();
     this.scanForVariables();
+    this.loadGeneratedEmails();
+    this.setupUnderlinedTextDetection();
   }
 
   setupEventListeners() {
-    // Recipients textarea
     const recipientTextarea = document.getElementById('recipient-emails');
     recipientTextarea.addEventListener('input', () => {
       this.updateEmailStats();
       this.scanForVariables();
-      this.saveRecipients(); // Save recipients as user types
+      this.saveRecipients();
     });
 
-    // Subject line
     const subjectInput = document.getElementById('email-subject');
     subjectInput.addEventListener('input', () => {
       document.getElementById('subject-length').textContent = subjectInput.value.length;
       this.checkSubjectSpam();
       this.scanForVariables();
-      this.saveSubject(); // Save subject as user types
+      this.saveSubject();
     });
 
-    // Message body
-    const bodyTextarea = document.getElementById('email-body');
-    bodyTextarea.addEventListener('input', () => {
-      document.getElementById('body-length').textContent = bodyTextarea.value.length;
+    const bodyEditor = document.getElementById('email-body-editor');
+    bodyEditor.addEventListener('input', () => {
+      const text = this.getEditorText();
+      document.getElementById('body-length').textContent = text.length;
+      this.updateHiddenTextarea();
       this.scanForVariables();
-      this.saveBody(); // Save body as user types
+      this.saveBody();
     });
 
-    // Dark mode toggle
     document.getElementById('darkModeToggle').addEventListener('click', () => {
       document.documentElement.classList.toggle('dark');
       localStorage.setItem('theme', 
@@ -1095,12 +1347,10 @@ class EmailGeneratorApp {
       );
     });
 
-    // Personalization settings
     document.getElementById('auto-detect-names').addEventListener('change', this.scanForVariables.bind(this));
     document.getElementById('auto-capitalize').addEventListener('change', this.scanForVariables.bind(this));
     document.getElementById('include-date').addEventListener('change', this.scanForVariables.bind(this));
 
-    // From name and email
     document.getElementById('from-name').addEventListener('input', () => {
       localStorage.setItem('extractingo-from-name', document.getElementById('from-name').value);
     });
@@ -1109,8 +1359,37 @@ class EmailGeneratorApp {
       localStorage.setItem('extractingo-from-email', document.getElementById('from-email').value);
     });
 
-    // Load saved data
     this.loadSavedData();
+  }
+
+  setupUnderlinedTextDetection() {
+    const editor = document.getElementById('email-body-editor');
+    
+    editor.addEventListener('click', (e) => {
+      if (this.lastUnderlinedElement) {
+        this.lastUnderlinedElement.classList.remove('underlined-selected');
+        this.lastUnderlinedElement = null;
+      }
+      
+      let target = e.target;
+      
+      if (target.nodeType === 3) {
+        target = target.parentElement;
+      }
+      
+      if (target.tagName === 'U' || (target.parentElement && target.parentElement.tagName === 'U')) {
+        const underlinedElement = target.tagName === 'U' ? target : target.parentElement;
+        underlinedElement.classList.add('underlined-selected');
+        this.lastUnderlinedElement = underlinedElement;
+      }
+    });
+    
+    editor.addEventListener('blur', () => {
+      if (this.lastUnderlinedElement) {
+        this.lastUnderlinedElement.classList.remove('underlined-selected');
+        this.lastUnderlinedElement = null;
+      }
+    });
   }
 
   setupTheme() {
@@ -1121,7 +1400,6 @@ class EmailGeneratorApp {
   }
 
   loadSampleData() {
-    // Load sample recipients
     const sampleEmails = `soportesscenshop@proton.me
 support@revanclub.store
 contact@revanclub.store
@@ -1142,33 +1420,30 @@ info@dermadone.ca`;
     document.getElementById('recipient-emails').value = sampleEmails;
     this.updateEmailStats();
     
-    // Trigger variable scan
     setTimeout(() => this.scanForVariables(), 100);
   }
 
   loadSavedData() {
-    // Load recipients from localStorage (empty by default)
     const savedRecipients = localStorage.getItem('extractingo-recipients');
     if (savedRecipients) {
       document.getElementById('recipient-emails').value = savedRecipients;
       this.updateEmailStats();
     }
     
-    // Load subject from localStorage
     const savedSubject = localStorage.getItem('extractingo-subject');
     if (savedSubject) {
       document.getElementById('email-subject').value = savedSubject;
       document.getElementById('subject-length').textContent = savedSubject.length;
     }
     
-    // Load body from localStorage (empty by default)
     const savedBody = localStorage.getItem('extractingo-body');
     if (savedBody) {
-      document.getElementById('email-body').value = savedBody;
-      document.getElementById('body-length').textContent = savedBody.length;
+      document.getElementById('email-body-editor').innerHTML = savedBody;
+      const text = this.getEditorText();
+      document.getElementById('body-length').textContent = text.length;
+      this.updateHiddenTextarea();
     }
     
-    // Load from name and email
     const savedFromName = localStorage.getItem('extractingo-from-name');
     const savedFromEmail = localStorage.getItem('extractingo-from-email');
     
@@ -1179,6 +1454,28 @@ info@dermadone.ca`;
     if (savedFromEmail) {
       document.getElementById('from-email').value = savedFromEmail;
     }
+  }
+
+  loadGeneratedEmails() {
+    const savedGeneratedEmails = localStorage.getItem('extractingo-generated-emails');
+    if (savedGeneratedEmails) {
+      try {
+        this.generatedEmails = JSON.parse(savedGeneratedEmails);
+        
+        if (this.generatedEmails.length > 0) {
+          document.getElementById('generated-emails-section').classList.remove('hidden');
+          this.renderGeneratedEmails();
+          this.updateOpenedCount();
+        }
+      } catch (error) {
+        console.error('Error loading generated emails:', error);
+        this.generatedEmails = [];
+      }
+    }
+  }
+
+  saveGeneratedEmails() {
+    localStorage.setItem('extractingo-generated-emails', JSON.stringify(this.generatedEmails));
   }
 
   saveRecipients() {
@@ -1192,7 +1489,7 @@ info@dermadone.ca`;
   }
 
   saveBody() {
-    const body = document.getElementById('email-body').value;
+    const body = document.getElementById('email-body-editor').innerHTML;
     localStorage.setItem('extractingo-body', body);
   }
 
@@ -1224,19 +1521,30 @@ info@dermadone.ca`;
     
     this.emails = Array.from(emailMap.keys());
     
-    // Update stats display
     document.getElementById('valid-count').textContent = validCount;
     document.getElementById('invalid-count').textContent = invalidCount;
     document.getElementById('total-count').textContent = total;
     document.getElementById('duplicates-count').textContent = duplicates;
   }
 
+  getEditorText() {
+    const editor = document.getElementById('email-body-editor');
+    return editor.innerText || editor.textContent;
+  }
+
+  updateHiddenTextarea() {
+    const editor = document.getElementById('email-body-editor');
+    const hiddenTextarea = document.getElementById('email-body');
+    const text = this.getEditorText();
+    hiddenTextarea.value = text;
+    document.getElementById('body-length').textContent = text.length;
+  }
+
   scanForVariables() {
     const subject = document.getElementById('email-subject').value;
-    const body = document.getElementById('email-body').value;
+    const body = this.getEditorText();
     const allText = subject + ' ' + body;
     
-    // Find all variables in format {variable}
     const variableRegex = /\{([^}]+)\}/g;
     let match;
     const detectedVariables = new Set();
@@ -1245,7 +1553,6 @@ info@dermadone.ca`;
       detectedVariables.add(match[1]);
     }
     
-    // Update UI
     const variables = Array.from(detectedVariables);
     const count = variables.length;
     
@@ -1272,11 +1579,9 @@ info@dermadone.ca`;
       const [localPart] = email.split('@');
       if (!localPart) return '';
       
-      // Common patterns: first.last, first_last, first-last, firstlast
       let nameParts = localPart.split(/[._-]/);
       
       if (nameParts.length === 1 && localPart.length > 5) {
-        // Single word - try to split camelCase
         nameParts = localPart.replace(/([a-z])([A-Z])/g, '$1 $2').split(' ');
       }
       
@@ -1315,10 +1620,8 @@ info@dermadone.ca`;
       return name;
     }
     
-    // Remove numbers and special characters
     let formatted = name.replace(/[0-9]/g, '').replace(/[^a-zA-Z]/g, ' ');
     
-    // Capitalize each word
     formatted = formatted.split(' ')
       .map(word => word.charAt(0).toUpperCase() + word.slice(1).toLowerCase())
       .join(' ')
@@ -1343,18 +1646,16 @@ info@dermadone.ca`;
     const subject = document.getElementById('email-subject').value.toLowerCase();
     const issues = [];
     
-    // Common spam trigger words
     const spamTriggers = [
-      { word: 'free', points: 3 },
-      { word: 'urgent', points: 2 },
-      { word: 'buy now', points: 3 },
-      { word: 'click here', points: 2 },
-      { word: 'discount', points: 2 },
-      { word: 'limited time', points: 2 },
-      { word: '!!!', points: 3 },
-      { word: '$$$', points: 3 },
-      { word: '100% free', points: 4 },
-      { word: 'act now', points: 2 }
+      { word: '100% free', points: 2 },
+      { word: '!!!', points: 2 },
+      { word: '$$$', points: 2 },
+      { word: 'earn $', points: 3 },
+      { word: 'make money', points: 1 },
+      { word: 'cash bonus', points: 2 },
+      { word: 'risk-free', points: 1 },
+      { word: 'special promotion', points: 1 },
+      { word: 'you have been selected', points: 3 }
     ];
     
     let spamScore = 0;
@@ -1366,14 +1667,12 @@ info@dermadone.ca`;
       }
     });
     
-    // Check for all caps
     const capsRatio = (subject.match(/[A-Z]/g) || []).length / subject.length;
-    if (capsRatio > 0.5 && subject.length > 10) {
-      spamScore += 2;
-      issues.push('Too many capital letters (+2 points)');
+    if (capsRatio > 0.7 && subject.length > 10) {
+      spamScore += 1;
+      issues.push('Too many capital letters (+1 point)');
     }
     
-    // Update display
     const spamCheckDiv = document.getElementById('subject-spam-check');
     const scoreElement = document.getElementById('subject-spam-score');
     const issuesElement = document.getElementById('subject-spam-issues');
@@ -1383,13 +1682,19 @@ info@dermadone.ca`;
       
       if (spamScore === 0) {
         scoreElement.className = 'spam-score spam-score-low';
-        scoreElement.textContent = 'Low Risk';
+        scoreElement.textContent = 'Very Low Risk';
         issuesElement.innerHTML = '<div class="spam-fixed">✓ No spam triggers detected</div>';
-      } else if (spamScore <= 3) {
+      } else if (spamScore <= 2) {
+        scoreElement.className = 'spam-score spam-score-low';
+        scoreElement.textContent = 'Low Risk';
+        issuesElement.innerHTML = issues.map(issue => 
+          `<div class="spam-issue">⚠️ ${issue}</div>`
+        ).join('');
+      } else if (spamScore <= 5) {
         scoreElement.className = 'spam-score spam-score-medium';
         scoreElement.textContent = 'Medium Risk';
         issuesElement.innerHTML = issues.map(issue => 
-          `<div class="spam-issue">⚠️ ${issue}</div>`
+          `<div class="spam-issue">❌ ${issue}</div>`
         ).join('');
       } else {
         scoreElement.className = 'spam-score spam-score-high';
@@ -1405,7 +1710,7 @@ info@dermadone.ca`;
 
   checkSpam() {
     const subject = document.getElementById('email-subject').value;
-    const body = document.getElementById('email-body').value;
+    const body = this.getEditorText();
     
     if (!subject && !body) {
       this.showNotification('Please enter subject and body to check spam score', 'warning');
@@ -1416,26 +1721,31 @@ info@dermadone.ca`;
     const issues = [];
     const suggestions = [];
     
-    // Subject checks
     const subjectLower = subject.toLowerCase();
-    const subjectSpamWords = ['free', 'urgent', 'buy now', 'click here', '!!!', '$$$'];
-    subjectSpamWords.forEach(word => {
-      if (subjectLower.includes(word)) {
-        spamScore += 2;
-        issues.push(`Subject contains "${word}"`);
+    const subjectSpamWords = [
+      { word: '100% free', points: 2 },
+      { word: '!!!', points: 1 },
+      { word: '$$$', points: 2 },
+      { word: 'earn $', points: 3 },
+      { word: 'make money', points: 1 }
+    ];
+    
+    subjectSpamWords.forEach(trigger => {
+      if (subjectLower.includes(trigger.word)) {
+        spamScore += trigger.points;
+        issues.push(`Subject contains "${trigger.word}" (+${trigger.points} points)`);
       }
     });
     
-    // Body checks
     const bodyLower = body.toLowerCase();
     const bodySpamWords = [
-      { word: 'free', points: 1 },
-      { word: 'money', points: 2 },
-      { word: 'winner', points: 3 },
-      { word: 'click here', points: 2 },
-      { word: 'unsubscribe', points: 1 },
-      { word: 'limited time', points: 2 },
-      { word: 'act now', points: 2 }
+      { word: 'earn $', points: 3 },
+      { word: 'make money', points: 2 },
+      { word: 'cash bonus', points: 2 },
+      { word: 'risk-free', points: 1 },
+      { word: 'you have been selected', points: 3 },
+      { word: 'special promotion', points: 1 },
+      { word: 'click below', points: 1 }
     ];
     
     bodySpamWords.forEach(trigger => {
@@ -1445,21 +1755,22 @@ info@dermadone.ca`;
       }
     });
     
-    // Check for too many links
     const linkCount = (body.match(/https?:\/\/[^\s]+/g) || []).length;
-    if (linkCount > 3) {
-      spamScore += 3;
-      issues.push(`Too many links (${linkCount} found, +3 points)`);
-      suggestions.push('Reduce the number of links to 1-2');
+    if (linkCount > 5) {
+      spamScore += 2;
+      issues.push(`Many links (${linkCount} found, +2 points)`);
+      suggestions.push('Consider reducing the number of links');
     }
     
-    // Check for personalization
-    if (!body.includes('{name}') && !body.includes('{company}')) {
-      spamScore += 1;
-      suggestions.push('Add personalization variables like {name} or {company}');
+    if (body.includes('{name}') || body.includes('{company}')) {
+      spamScore = Math.max(0, spamScore - 2);
+      suggestions.push('Good: Using personalization variables reduces spam risk');
+    } else {
+      suggestions.push('Add personalization variables like {name} or {company} to reduce spam risk');
     }
     
-    // Update display
+    spamScore = Math.max(0, spamScore);
+    
     const spamResults = document.getElementById('spam-results');
     const overallScore = document.getElementById('overall-spam-score');
     const issuesElement = document.getElementById('spam-issues');
@@ -1471,7 +1782,10 @@ info@dermadone.ca`;
       overallScore.className = 'spam-score spam-score-low';
       overallScore.textContent = 'Excellent (0/20)';
       issuesElement.innerHTML = '<div class="spam-fixed">✓ No spam issues detected!</div>';
-    } else if (spamScore <= 5) {
+    } else if (spamScore <= 3) {
+      overallScore.className = 'spam-score spam-score-low';
+      overallScore.textContent = `Very Good (${spamScore}/20)`;
+    } else if (spamScore <= 6) {
       overallScore.className = 'spam-score spam-score-low';
       overallScore.textContent = `Good (${spamScore}/20)`;
     } else if (spamScore <= 10) {
@@ -1486,6 +1800,8 @@ info@dermadone.ca`;
       issuesElement.innerHTML = issues.map(issue => 
         `<div class="spam-issue">⚠️ ${issue}</div>`
       ).join('');
+    } else {
+      issuesElement.innerHTML = '<div class="spam-fixed">✓ No spam issues detected!</div>';
     }
     
     if (suggestions.length > 0) {
@@ -1500,14 +1816,22 @@ info@dermadone.ca`;
     document.getElementById('recipient-emails').value = '';
     this.updateEmailStats();
     this.scanForVariables();
-    this.saveRecipients(); // Save empty recipients
+    this.saveRecipients();
     this.showNotification('Recipients cleared', 'info');
+  }
+
+  clearGeneratedEmails() {
+    this.generatedEmails = [];
+    this.selectedEmails.clear();
+    localStorage.removeItem('extractingo-generated-emails');
+    document.getElementById('generated-emails-section').classList.add('hidden');
+    this.showNotification('Generated emails cleared', 'info');
   }
 
   generateEmails() {
     const recipients = document.getElementById('recipient-emails').value;
     const subject = document.getElementById('email-subject').value;
-    const body = document.getElementById('email-body').value;
+    const body = document.getElementById('email-body-editor').innerHTML;
     
     if (!recipients.trim()) {
       this.showNotification('Please add recipient emails', 'error');
@@ -1524,72 +1848,73 @@ info@dermadone.ca`;
       return;
     }
     
-    // Show loading briefly
     const button = event?.target || document.querySelector('button[onclick*="generateEmails"]');
     const originalText = button.innerHTML;
     button.innerHTML = '<div class="spinner mr-2"></div> Generating...';
     button.disabled = true;
     
-    // Generate instantly (no delay)
     setTimeout(() => {
-      // Generate email list with personalization
       this.generatedEmails = this.emails.map((email, index) => {
-        const personalizedData = this.personalizeEmail(email, subject, body);
-        const mailtoUrl = this.createMailtoUrl(email, personalizedData.subject, personalizedData.body);
+        const existingEmail = this.generatedEmails.find(e => e.email === email);
         
-        return {
-          id: index + 1,
-          email: email,
-          status: 'pending',
-          openedInGmail: false,
-          selected: false,
-          mailtoUrl: mailtoUrl,
-          personalizedData: personalizedData,
-          isPersonalized: personalizedData.isPersonalized
-        };
+        if (existingEmail) {
+          return {
+            ...existingEmail,
+            personalizedData: this.personalizeEmail(email, subject, body),
+            mailtoUrl: this.createMailtoUrl(email, 
+              this.personalizeEmail(email, subject, body).subject, 
+              this.personalizeEmail(email, subject, body).body
+            ),
+            isPersonalized: this.personalizeEmail(email, subject, body).isPersonalized
+          };
+        } else {
+          const personalizedData = this.personalizeEmail(email, subject, body);
+          const mailtoUrl = this.createMailtoUrl(email, personalizedData.subject, personalizedData.body);
+          
+          return {
+            id: index + 1,
+            email: email,
+            status: 'pending',
+            openedInGmail: false,
+            selected: false,
+            mailtoUrl: mailtoUrl,
+            personalizedData: personalizedData,
+            isPersonalized: personalizedData.isPersonalized
+          };
+        }
       });
       
-      // Show generated emails section
       document.getElementById('generated-emails-section').classList.remove('hidden');
       
-      // Render emails
       this.renderGeneratedEmails();
       
-      // Update button
       button.innerHTML = originalText;
       button.disabled = false;
       
-      // Save data
       this.saveSubject();
       this.saveBody();
       this.saveRecipients();
+      this.saveGeneratedEmails();
       
-      // Show success message
       const personalizedCount = this.generatedEmails.filter(e => e.isPersonalized).length;
-      this.showNotification(`✅ Generated ${this.generatedEmails.length} emails! ${personalizedCount} personalized.`, 'success');
+      const openedCount = this.generatedEmails.filter(e => e.openedInGmail).length;
+      this.showNotification(`✅ Generated ${this.generatedEmails.length} emails! ${personalizedCount} personalized. ${openedCount} already sent.`, 'success');
       
-      // Scroll to generated emails
       document.getElementById('generated-emails-section').scrollIntoView({ behavior: 'smooth' });
-    }, 300); // Very brief loading indicator
+    }, 300);
   }
 
+  // UPDATED FUNCTION: Automatically converts underlined text to bold
   personalizeEmail(email, subject, body) {
     let personalizedSubject = subject;
     let personalizedBody = body;
     let isPersonalized = false;
     
-    // Extract name and company
     const name = this.extractNameFromEmail(email);
     const company = this.extractCompanyFromEmail(email);
     
-    // Replace variables
     if (name && personalizedSubject.includes('{name}')) {
       personalizedSubject = personalizedSubject.replace(/{name}/gi, name);
-      isPersonalized = true;
-    }
-    
-    if (name && personalizedBody.includes('{name}')) {
-      personalizedBody = personalizedBody.replace(/{name}/gi, name);
       isPersonalized = true;
     }
     
@@ -1598,12 +1923,42 @@ info@dermadone.ca`;
       isPersonalized = true;
     }
     
+    // IMPORTANT: Convert all underlined text to bold in the body
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = body;
+    
+    // Find all underlined elements and convert them to bold
+    const underlinedElements = tempDiv.querySelectorAll('u, [style*="underline"]');
+    underlinedElements.forEach(element => {
+      const boldElement = document.createElement('strong');
+      
+      // Preserve existing classes and content
+      boldElement.innerHTML = element.innerHTML;
+      if (element.className) {
+        boldElement.className = element.className;
+      }
+      if (element.style && element.style.cssText) {
+        boldElement.style.cssText = element.style.cssText;
+      }
+      
+      // Replace underline with bold
+      element.parentNode.replaceChild(boldElement, element);
+    });
+    
+    // Get the converted body
+    personalizedBody = tempDiv.innerHTML;
+    
+    // Now replace variables in the converted body
+    if (name && personalizedBody.includes('{name}')) {
+      personalizedBody = personalizedBody.replace(/{name}/gi, name);
+      isPersonalized = true;
+    }
+    
     if (company && personalizedBody.includes('{company}')) {
       personalizedBody = personalizedBody.replace(/{company}/gi, company);
       isPersonalized = true;
     }
     
-    // Replace date if included
     if (document.getElementById('include-date').checked) {
       const currentDate = new Date().toLocaleDateString('en-US', { 
         weekday: 'long', 
@@ -1616,7 +1971,6 @@ info@dermadone.ca`;
       personalizedBody = personalizedBody.replace(/{date}/gi, currentDate);
     }
     
-    // Replace your_name
     const fromName = document.getElementById('from-name').value || 'Extractingo Team';
     personalizedSubject = personalizedSubject.replace(/{your_name}/gi, fromName);
     personalizedBody = personalizedBody.replace(/{your_name}/gi, fromName);
@@ -1630,29 +1984,41 @@ info@dermadone.ca`;
     };
   }
 
-  createMailtoUrl(email, subject, body) {
-    // Always use mailto: protocol (works on both mobile and desktop)
-    // mailto: opens the default email app on the device
+  // UPDATED FUNCTION: Convert HTML to plain text with asterisks for bold
+  htmlToPlainText(html) {
+    const tempDiv = document.createElement('div');
+    tempDiv.innerHTML = html;
     
-    // Get sender info
+    // Replace <strong> and <b> tags with asterisks for plain text
+    const boldElements = tempDiv.querySelectorAll('strong, b');
+    boldElements.forEach(element => {
+      const text = element.textContent;
+      element.replaceWith(`**${text}**`);
+    });
+    
+    // Remove other HTML tags
+    return tempDiv.textContent || tempDiv.innerText || '';
+  }
+
+  createMailtoUrl(email, subject, body) {
+    // Always use mailto: protocol
     const fromName = document.getElementById('from-name').value || '';
     const fromEmail = document.getElementById('from-email').value || '';
     
-    // Create personalized body
-    let personalizedBody = body;
+    // Convert HTML to plain text with bold formatting
+    let plainTextBody = this.htmlToPlainText(body);
     
     // Add sender info if provided
     if (fromName || fromEmail) {
-      personalizedBody += '\n\n---\n';
-      if (fromName) personalizedBody += `From: ${fromName}\n`;
-      if (fromEmail) personalizedBody += `Reply-to: ${fromEmail}`;
+      plainTextBody += '\n\n---\n';
+      if (fromName) plainTextBody += `From: ${fromName}\n`;
+      if (fromEmail) plainTextBody += `Reply-to: ${fromEmail}`;
     }
     
     // Encode for URL
     const encodedSubject = encodeURIComponent(subject);
-    const encodedBody = encodeURIComponent(personalizedBody);
+    const encodedBody = encodeURIComponent(plainTextBody);
     
-    // Create mailto: URL
     return `mailto:${email}?subject=${encodedSubject}&body=${encodedBody}`;
   }
 
@@ -1660,8 +2026,7 @@ info@dermadone.ca`;
     const email = this.generatedEmails.find(e => e.id === emailId);
     if (!email || !email.mailtoUrl) return;
     
-    // Always use mailto: protocol to open email app
-    // This creates a hidden anchor and clicks it to avoid popup blockers
+    // Create and click mailto: link
     const anchor = document.createElement('a');
     anchor.href = email.mailtoUrl;
     anchor.style.display = 'none';
@@ -1678,7 +2043,8 @@ info@dermadone.ca`;
     this.renderGeneratedEmails();
     this.updateOpenedCount();
     
-    // Show notification
+    this.saveGeneratedEmails();
+    
     const isMobile = /Android|iPhone|iPad|iPod/i.test(navigator.userAgent);
     const message = isMobile ? 
       `Opening email app for ${email.email}` : 
@@ -1690,7 +2056,6 @@ info@dermadone.ca`;
     const container = document.getElementById('generated-emails-container');
     let filteredEmails = this.generatedEmails;
     
-    // Filter by current tab
     if (this.currentTab === 'opened') {
       filteredEmails = this.generatedEmails.filter(email => email.openedInGmail);
     } else if (this.currentTab === 'pending') {
@@ -1713,7 +2078,6 @@ info@dermadone.ca`;
       </div>
     `).join('');
     
-    // Update selected count
     this.updateSelectedCount();
   }
 
@@ -1721,7 +2085,6 @@ info@dermadone.ca`;
     const email = this.generatedEmails.find(e => e.id === emailId);
     if (!email) return;
     
-    // Ctrl+Click for multi-select
     if (event.ctrlKey || event.metaKey) {
       email.selected = !email.selected;
       if (email.selected) {
@@ -1733,7 +2096,6 @@ info@dermadone.ca`;
       return;
     }
     
-    // Single click - open in Email App using mailto:
     this.openEmailInGmail(emailId);
   }
 
@@ -1741,7 +2103,6 @@ info@dermadone.ca`;
     const selectedEmails = this.generatedEmails.filter(email => email.selected);
     
     if (selectedEmails.length === 0) {
-      // If none selected, open first pending
       const pendingEmails = this.generatedEmails.filter(email => !email.openedInGmail);
       if (pendingEmails.length === 0) {
         this.showNotification('No pending emails to open', 'warning');
@@ -1750,7 +2111,6 @@ info@dermadone.ca`;
       
       this.openEmailInGmail(pendingEmails[0].id);
     } else {
-      // Open selected emails (no delays)
       selectedEmails.forEach(email => {
         this.openEmailInGmail(email.id);
       });
@@ -1786,7 +2146,6 @@ info@dermadone.ca`;
   showEmailTab(tabName) {
     this.currentTab = tabName;
     
-    // Update tab buttons
     document.querySelectorAll('.tab-button').forEach(button => {
       button.classList.remove('active');
       if (button.getAttribute('data-tab') === tabName) {
@@ -1794,7 +2153,6 @@ info@dermadone.ca`;
       }
     });
     
-    // Re-render emails
     this.renderGeneratedEmails();
   }
 
@@ -1810,14 +2168,13 @@ info@dermadone.ca`;
 
   previewEmail() {
     const subject = document.getElementById('email-subject').value;
-    const body = document.getElementById('email-body').value;
+    const body = this.getEditorText();
     
     if (!subject.trim() || !body.trim()) {
       this.showNotification('Please fill in subject and body to preview', 'warning');
       return;
     }
     
-    // Show preview with personalization example
     if (this.emails.length > 0) {
       const sampleEmail = this.emails[0];
       const personalized = this.personalizeEmail(sampleEmail, subject, body);
@@ -1832,7 +2189,7 @@ info@dermadone.ca`;
 
   testInGmail() {
     const subject = document.getElementById('email-subject').value;
-    const body = document.getElementById('email-body').value;
+    const body = document.getElementById('email-body-editor').innerHTML;
     const testEmail = 'test@example.com';
     
     if (!subject || !body) {
@@ -1843,7 +2200,6 @@ info@dermadone.ca`;
     const personalized = this.personalizeEmail(testEmail, subject, body);
     const mailtoUrl = this.createMailtoUrl(testEmail, personalized.subject, personalized.body);
     
-    // Use mailto: for testing too
     const anchor = document.createElement('a');
     anchor.href = mailtoUrl;
     anchor.style.display = 'none';
@@ -1862,9 +2218,9 @@ info@dermadone.ca`;
     options.classList.toggle('hidden');
     
     if (options.classList.contains('hidden')) {
-      button.innerHTML = '<i class="ri-settings-3-line mr-2"></i>Advanced Options';
+      button.innerHTML = '<i class="ri-settings-3-line mr-1 md:mr-2"></i>Advanced';
     } else {
-      button.innerHTML = '<i class="ri-settings-3-line mr-2"></i>Hide Options';
+      button.innerHTML = '<i class="ri-settings-3-line mr-1 md:mr-2"></i>Hide Options';
     }
   }
 
@@ -1884,48 +2240,53 @@ info@dermadone.ca`;
 
 // Formatting functions
 function formatText(command) {
-  const textarea = document.getElementById('email-body');
-  const start = textarea.selectionStart;
-  const end = textarea.selectionEnd;
-  const selectedText = textarea.value.substring(start, end);
+  const editor = document.getElementById('email-body-editor');
   
-  let formattedText = '';
-  switch (command) {
-    case 'bold':
-      formattedText = `**${selectedText}**`;
-      break;
-    case 'italic':
-      formattedText = `*${selectedText}*`;
-      break;
+  editor.focus();
+  
+  // Convert underlined text to bold when bold button is clicked
+  if (command === 'bold' && app.lastUnderlinedElement) {
+    const boldElement = document.createElement('strong');
+    boldElement.innerHTML = app.lastUnderlinedElement.innerHTML;
+    
+    app.lastUnderlinedElement.parentNode.replaceChild(boldElement, app.lastUnderlinedElement);
+    
+    app.lastUnderlinedElement.classList.remove('underlined-selected');
+    app.lastUnderlinedElement = null;
+    
+    app.updateHiddenTextarea();
+    app.saveBody();
+    return;
   }
   
-  textarea.value = textarea.value.substring(0, start) + formattedText + textarea.value.substring(end);
-  textarea.focus();
-  textarea.setSelectionRange(start + formattedText.length, start + formattedText.length);
+  document.execCommand(command, false, null);
   
-  // Update character count
-  document.getElementById('body-length').textContent = textarea.value.length;
-}
-
-function insertVariable(variable) {
-  const textarea = document.getElementById('email-body');
-  const start = textarea.selectionStart;
-  const variableText = `{${variable}}`;
+  app.updateHiddenTextarea();
+  app.saveBody();
   
-  textarea.value = textarea.value.substring(0, start) + variableText + textarea.value.substring(start);
-  textarea.focus();
-  textarea.setSelectionRange(start + variableText.length, start + variableText.length);
-  
-  // Update character count
-  document.getElementById('body-length').textContent = textarea.value.length;
-  
-  // Update variable detection
   if (app) app.scanForVariables();
 }
 
-// Load sample emails function
+function insertVariable(variable) {
+  const editor = document.getElementById('email-body-editor');
+  editor.focus();
+  
+  document.execCommand('insertText', false, `{${variable}}`);
+  
+  app.updateHiddenTextarea();
+  app.saveBody();
+  
+  if (app) app.scanForVariables();
+}
+
 function loadSampleEmails() {
   app.loadSampleData();
+}
+
+function clearGeneratedEmails() {
+  if (confirm('Are you sure you want to clear all generated emails? This action cannot be undone.')) {
+    app.clearGeneratedEmails();
+  }
 }
 
 // Initialize app
